@@ -1,0 +1,13 @@
+{
+    "name": "cristhianmcc/sistemaestudiantes",
+    "description": "Sistema de Gestión Educativa con PHP/MySQL",
+    "type": "project",
+    "require": {
+        "php": "^7.4 || ^8.0"
+    },
+    "config": {
+        "platform": {
+            "php": "8.1"
+        }
+    }
+}
