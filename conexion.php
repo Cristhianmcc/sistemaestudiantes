@@ -7,19 +7,17 @@ $base_datos = $_ENV['DB_NAME'] ?? getenv('DB_NAME') ?? 'vidia';
 $puerto = $_ENV['DB_PORT'] ?? getenv('DB_PORT') ?? 3306;
 
 // Crear conexión con puerto específico
-$conexion = new mysqli($host, $usuario, $clave, $base_datos, $puerto);
 
-// Verificar conexión
-if ($conexion->connect_error) {
-  die("Error de conexión: " . $conexion->connect_error);
-}
-
-// Establecer charset UTF-8
-$conexion->set_charset("utf8");
-
-// Opcional: mostrar info de conexión en desarrollo
-if (isset($_GET['debug']) && $_GET['debug'] == 'db') {
-  echo "✅ Conectado a: " . $host . ":" . $puerto . " | DB: " . $base_datos . "<br>";
+try {
+    $dsn = "mysql:host=$host;port=$puerto;dbname=$base_datos;charset=utf8";
+    $conexion = new PDO($dsn, $usuario, $clave);
+    $conexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    // Opcional: mostrar info de conexión en desarrollo
+    if (isset($_GET['debug']) && $_GET['debug'] == 'db') {
+        echo "✅ Conectado a: " . $host . ":" . $puerto . " | DB: " . $base_datos . "<br>";
+    }
+} catch (PDOException $e) {
+    die("Error de conexión: " . $e->getMessage());
 }
 ?>
 
