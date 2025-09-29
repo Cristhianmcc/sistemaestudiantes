@@ -18,11 +18,3 @@ $conexion->set_charset("utf8");
 if (isset($_GET['debug']) && $_GET['debug'] == 'db') {
     echo "✅ Conectado a: " . $host . ":" . $puerto . " | DB: " . $base_datos . "<br>";
 }
-?>
-
-<!-- <?php
-//$conexion = new mysqli("localhost", "root", "root", "vidia");
-//if ($conexion->connect_error) {
- // die("Error de conexión: " . $conexion->connect_error);
-//}
-?> -->
