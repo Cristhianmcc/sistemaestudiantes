@@ -3,11 +3,6 @@
     "description": "Sistema de Gestión Educativa con PHP/MySQL",
     "type": "project",
     "require": {
-        "php": "^7.4 || ^8.2"
-    },
-    "config": {
-        "platform": {
-            "php": "8.1"
-        }
+        "php": "^8.2"
     }
 }
