@@ -1,8 +1,8 @@
-[phases.setup]
-nixPkgs = ["php81", "php81Packages.composer", "nginx"]
 
-[phases.build]
-cmds = ["echo 'PHP setup complete'"]
+[phases.setup]
+nixPkgs = ["php", "php82Packages.composer", "php82Packages.php-mysqli"]
+
+
 
 [start]
 cmd = "php -S 0.0.0.0:$PORT"
